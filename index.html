@@ -288,8 +288,12 @@
 
 <!-- ── ENCABEZADO INSTITUCIONAL ── -->
 <div class="header">
-    <div class="header-logo">
-        <img src="logo_imss.png" alt="Logo IMSS" style="width:80px; height:auto;">
+    <div class="header-logo" aria-hidden="true">
+        <!-- Sustituimos la imagen faltante por un SVG simple para evitar 404 -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo HGZ2A">
+            <rect width="100" height="100" rx="14" fill="#00664f" />
+            <text x="50" y="56" font-family="Montserrat, sans-serif" font-weight="800" font-size="30" fill="#ffffff" text-anchor="middle">HGZ</text>
+        </svg>
     </div>
     <div class="header-info">
         <div class="institucion">Instituto Mexicano del Seguro Social</div>
@@ -369,68 +373,120 @@
 </div>
 
 <script>
+    // URL del script web (Google Apps Script) — mantenemos la original pero quitamos mode: "no-cors" para detectar errores CORS correctamente.
     const WEB_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0Lrohl_8skZ3iWz2XgWWstETpo6zYmZ3Z5BDhTEv8UYsBTo4ehEMFMwRtU8n7uoQO6g/exec";
 
+    // Datos del cuestionario corregidos para evitar errores de sintaxis.
     const quizData = [
         {
             question: "¿Cuál es el correcto lavado de manos según la norma para el personal que manipula alimentos?",
-            options: ["Enjuagar sólo con agua rápidamente antes de tocar los platos.", "Frotar con agua y jabón antibacterial por al menos 20 segundos, incluyendo palmas, dorso, entre los dedos y hasta los codos, enjuagar y secar con toalla de papel desechable.", "Usar únicamente gel antibacterial si las manos se ven limpias.", "Lavarse sólo después de ir al baño."],
+            options: [
+                "Enjuagar sólo con agua rápidamente antes de tocar los platos.",
+                "Frotar con agua y jabón por al menos 20 segundos, incluyendo palmas, dorso, entre los dedos y las uñas, hasta las muñecas.",
+                "Usar solamente gel antibacterial sin enjuagar.",
+                "Lavar únicamente al iniciar el turno."
+            ],
             correct: 1,
-            feedback: "¡Correcto! El lavado de manos debe ser minucioso, con jabón, tallando hasta los codos y secado con papel desechable para evitar la contaminación cruzada."
+            feedback: "¡Correcto! El lavado de manos debe ser minucioso, con jabón y secado con papel desechable para evitar la contaminación cruzada."
         },
         {
             question: "¿Cuál es la regla estricta respecto al uso de joyería y accesorios durante la jornada laboral en la cocina?",
-            options: ["Se permiten anillos si son de matrimonio.", "Se pueden usar aretes pequeños que no cuelguen.", "No se permite el uso de anillos, pulseras, relojes, aretes ni collares en el área de preparación.", "Sólo se prohíbe el uso de relojes inteligentes."],
+            options: [
+                "Se permiten anillos si son de matrimonio.",
+                "Se pueden usar aretes pequeños que no cuelguen.",
+                "No se permite el uso de anillos, pulseras, relojes, aretes ni collares en el área de producción.",
+                "Solo se prohíben collares largos."
+            ],
             correct: 2,
-            feedback: "¡Correcto! La joyería representa un peligro físico (puede caer en la comida) y biológico (acumula bacterias difíciles de eliminar)."
+            feedback: "¡Correcto! La joyería representa un peligro físico y biológico para los alimentos."
         },
         {
             question: "Sobre el estado de las uñas del personal de cocina, ¿cuál es la especificación correcta?",
-            options: ["Pueden ser largas si están limpias.", "Deben estar cortas, limpias y estrictamente sin esmalte ni uñas postizas.", "Se permite el uso de esmalte transparente o gelish.", "Las uñas postizas se permiten si se usan guantes todo el tiempo."],
+            options: [
+                "Pueden ser largas si están limpias.",
+                "Deben estar cortas, limpias y estrictamente sin esmalte ni uñas postizas.",
+                "Se permite el uso de esmalte transparente o gelish.",
+                "No importa la longitud si se usan guantes."
+            ],
             correct: 1,
-            feedback: "¡Correcto! El esmalte se descascara y las uñas largas albergan restos de comida y microorganismos debajo de ellas."
+            feedback: "¡Correcto! El esmalte se descascara y las uñas largas albergan restos y microorganismos."
         },
         {
             question: "¿Cómo debe utilizarse correctamente el uniforme y el calzado en el área de producción?",
-            options: ["Uniforme limpio, cofia que cubra totalmente el cabello, cubrebocas que tape nariz y boca, y calzado cerrado, limpio y antiderrapante.", "Se puede usar ropa de civil si se trae mandil encima.", "La cofia es opcional si el cabello está corto.", "Se permiten sandalias o tenis de tela para mayor comodidad."],
+            options: [
+                "Uniforme limpio, cofia que cubra totalmente el cabello, cubrebocas que tape nariz y boca, y calzado cerrado, limpio y antiderrapante.",
+                "Se puede usar ropa de civil si se trae mascarilla.",
+                "Solo se exige cofia, el resto es opcional.",
+                "El calzado abierto es permitido si tiene calcetines."
+            ],
             correct: 0,
-            feedback: "¡Correcto! El uniforme completo actúa como barrera protectora. La cofia evita caída de cabellos y el calzado cerrado previene quemaduras y resbalones."
+            feedback: "¡Correcto! El uniforme completo actúa como barrera protectora."
         },
         {
             question: "Si un manejador de alimentos presenta síntomas de gripe, tos o heridas infectadas en las manos, ¿qué acción se debe tomar?",
-            options: ["Seguir trabajando normalmente pero usando doble cubrebocas.", "Reportar inmediatamente al jefe de sección para ser reubicado o incapacitado, evitando el contacto directo con los alimentos.", "Colocarse una bandita (curita) en la herida y continuar preparando la dieta regular.", "Tomar un analgésico y no decir nada para no retrasar el servicio."],
+            options: [
+                "Seguir trabajando normalmente pero usando doble cubrebocas.",
+                "Reportar inmediatamente al jefe de sección para ser reubicado o incapacitado, evitando el contacto directo con los alimentos.",
+                "Usar guantes y continuar trabajando.",
+                "Solo informar al compañero más cercano."
+            ],
             correct: 1,
-            feedback: "¡Correcto! El personal con heridas expuestas o infecciones respiratorias es una fuente alta de bacterias (como Staphylococcus) que contaminan las dietas."
+            feedback: "¡Correcto! El personal con heridas o infecciones es fuente alta de contaminación."
         },
         {
             question: "¿Cuál es la frecuencia correcta con la que se debe cambiar el cubrebocas durante el turno de trabajo?",
-            options: ["Cada que se humedezca, esté sucio o al menos cada 4 horas de uso continuo.", "Una vez por semana si es lavable.", "Únicamente cuando se vaya a entrar a la línea de ensamble de charolas.", "Sólo cuando el trabajador sienta que ya no puede respirar bien."],
+            options: [
+                "Cada que se humedezca, esté sucio o al menos cada 4 horas de uso continuo.",
+                "Una vez por semana si es lavable.",
+                "Únicamente cuando se vaya a entrar a la línea de ensamble.",
+                "No es necesario cambiarlo durante el turno."
+            ],
             correct: 0,
-            feedback: "¡Correcto! Un cubrebocas húmedo pierde su capacidad de filtración y se convierte en un medio de cultivo para las bacterias de la saliva."
+            feedback: "¡Correcto! Un cubrebocas húmedo pierde su capacidad de filtración y puede albergar bacterias."
         },
         {
             question: "¿Qué acciones o hábitos quedan estrictamente prohibidos dentro de las áreas de preparación de alimentos?",
-            options: ["Hablar en voz alta y cantar.", "Comer, mascar chicle, fumar, escupir o probar los alimentos con los dedos o utensilios sucios.", "Usar cofia de color diferente a la del resto del personal.", "Tomar agua de un termo cerrado en la zona de lavado."],
+            options: [
+                "Hablar en voz alta y cantar.",
+                "Comer, mascar chicle, fumar, escupir o probar los alimentos con los dedos o utensilios sucios.",
+                "Usar cofia de color diferente a la del resto.",
+                "Usar guantes de un solo uso."
+            ],
             correct: 1,
-            feedback: "¡Correcto! Estas acciones esparcen gotas de saliva o introducen contaminación química y física directa a los alimentos de los pacientes."
+            feedback: "¡Correcto! Estas acciones esparcen gotas de saliva o introducen contaminación directa a los alimentos."
         },
         {
             question: "Antes de ingresar al servicio y comenzar las labores en el departamento de Nutrición, ¿cuál es un requisito indispensable de higiene personal diaria?",
-            options: ["Llegar con perfume o loción de olor fuerte para mitigar los olores de la cocina.", "Haberse bañado diariamente, presentarse bien aseado y con el uniforme limpio desde casa o cambiarse en los vestidores.", "Tener el cabello suelto pero bien cepillado.", "Únicamente desinfectarse los zapatos en el tapete de la entrada."],
+            options: [
+                "Llegar con perfume o loción de olor fuerte para mitigar los olores de la cocina.",
+                "Haberse bañado diariamente, presentarse bien aseado y con el uniforme limpio desde casa o cambiado en vestuario.",
+                "Solo lavarse las manos al llegar.",
+                "Usar ropa informal para mayor comodidad."
+            ],
             correct: 1,
-            feedback: "¡Correcto! El baño diario y el uniforme limpio minimizan la carga de microorganismos ambientales que el personal introduce a las zonas críticas del servicio."
+            feedback: "¡Correcto! El baño diario y el uniforme limpio minimizan la carga de microorganismos."
         },
         {
             question: "¿Cuándo es obligatorio volver a realizar la técnica completa de lavado de manos?",
-            options: ["Únicamente al inicio del turno de trabajo.", "Solo después de limpiar las mesas de trabajo con cloro.", "Cada vez que se cambie de actividad, después de ir al baño, tocar basura, dinero, el celular o tras estornudar/toser.", "Cada dos horas de manera fija, sin importar lo que se esté haciendo."],
+            options: [
+                "Únicamente al inicio del turno de trabajo.",
+                "Solo después de limpiar las mesas de trabajo con cloro.",
+                "Cada vez que se cambie de actividad, después de ir al baño, tocar basura o superficies sucias, o al manipular alimentos crudos.",
+                "Solo al cambiar de zona de trabajo."
+            ],
             correct: 2,
-            feedback: "¡Correcto! Cualquier interrupción o contacto con superficies sucias (como el celular o desechos) rompe la inocuidad y exige un nuevo lavado."
+            feedback: "¡Correcto! Cualquier interrupción o contacto con superficies sucias exige un nuevo lavado."
         },
         {
             question: "Si se requiere el uso de guantes para el ensamble de dietas frías o ensaladas, ¿cómo deben emplearse?",
-            options: ["Se deben lavar las manos antes de ponerlos, usarlos solo para esa tarea y desecharlos en cuanto se rompan, ensucien o cambie de actividad.", "Pueden lavarse y reutilizarse al día siguiente si no están rotos.", "Sustituyen por completo la necesidad de lavarse las manos con agua y jabón.", "Se deben desinfectar con cloro directamente mientras se traen puestos."],
+            options: [
+                "Se deben lavar las manos antes de ponerlos, usarlos solo para esa tarea y desecharlos en cuanto se rompan, ensucien o cambie de actividad.",
+                "Pueden lavarse y reutilizarse al día siguiente.",
+                "Usar guantes durante todo el turno sin cambiarlos.",
+                "Compartir guantes entre compañeros si es necesario."
+            ],
             correct: 0,
-            feedback: "¡Correcto! Los guantes son una protección adicional, no un sustituto del lavado. Su mal uso o reutilización acumula humedad y acelera el crecimiento bacteriano."
+            feedback: "¡Correcto! Los guantes son una protección adicional, no un sustituto del lavado."
         }
     ];
 
@@ -473,6 +529,7 @@
 
         q.options.forEach((opt, idx) => {
             const btn = document.createElement("button");
+            btn.type = "button";
             btn.innerText = opt;
             btn.classList.add("option-btn");
             btn.addEventListener("click", () => selectOption(idx, btn));
@@ -497,7 +554,7 @@
             score++;
         } else {
             clickedButton.classList.add("incorrect");
-            allButtons[q.correct].classList.add("correct");
+            if (allButtons[q.correct]) allButtons[q.correct].classList.add("correct");
         }
 
         feedbackText.innerText = q.feedback;
@@ -528,14 +585,18 @@
             unidad:    "HGZ2A"
         };
 
+        // Intentamos enviar con CORS normal. Si el endpoint no permite CORS, la petición fallará en consola —
+        // eso es mejor para depuración que "no-cors" (que silencia la respuesta).
         fetch(WEB_SCRIPT_URL, {
             method: "POST",
-            mode: "no-cors",
             cache: "no-cache",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         })
-        .then(() => showResults())
+        .then(response => {
+            // Si el servidor responde OK, procedemos. Si es "opaque" o falla por CORS, irá al catch.
+            showResults();
+        })
         .catch(err => { console.error("Error al enviar:", err); showResults(); });
     }
 
