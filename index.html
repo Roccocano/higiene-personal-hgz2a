@@ -288,12 +288,8 @@
 
 <!-- ── ENCABEZADO INSTITUCIONAL ── -->
 <div class="header">
-    <div class="header-logo" aria-hidden="true">
-        <!-- Sustituimos la imagen faltante por un SVG simple para evitar 404 -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo HGZ2A">
-            <rect width="100" height="100" rx="14" fill="#00664f" />
-            <text x="50" y="56" font-family="Montserrat, sans-serif" font-weight="800" font-size="30" fill="#ffffff" text-anchor="middle">HGZ</text>
-        </svg>
+    <div class="header-logo">
+        <img src="data:image/png;base64,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" alt="Logo IMSS" style="width:80px; height:auto;">
     </div>
     <div class="header-info">
         <div class="institucion">Instituto Mexicano del Seguro Social</div>
@@ -373,119 +369,68 @@
 </div>
 
 <script>
-    // URL del script web (Google Apps Script) — mantenemos la original pero quitamos mode: "no-cors" para detectar errores CORS correctamente.
-    const WEB_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0Lrohl_8skZ3iWz2XgWWstETpo6zYmZ3Z5BDhTEv8UYsBTo4ehEMFMwRtU8n7uoQO6g/exec";
+    const WEB_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwDnel9lWX8UpHmY0cLCKWl0OtVPLptgFWND2PLQfhchcUoqNTTyWjfuJHMAWetefNe/exec";
 
     const quizData = [
         {
-            question: "¿Cuál es el correcto lavado de manos según la norma para el personal que manipula alimentos?",
-            options: [
-                "Enjuagar sólo con agua rápidamente antes de tocar los platos.",
-                "Frotar con agua y jabón por al menos 40 a 60 segundos, incluyendo palmas, dorso, entre los dedos y las uñas, hasta las muñecas.",
-                "Usar solamente gel antibacterial sin enjuagar.",
-                "Lavar únicamente al iniciar el turno."
-            ],
+            question: "¿Cuál es el correcto lavado de manos según la norma oficial de la OMS para el personal que manipula alimentos?",
+            options: ["Enjuagar sólo con agua rápidamente antes de tocar los platos.", "Realizar el procedimiento completo con agua y jabón durante un tiempo total de 40 a 60 segundos, asegurando la higiene profunda de las manos.", "Usar únicamente gel antibacterial si las manos se ven limpias.", "Lavarse sólo después de ir al baño."],
             correct: 1,
-            feedback: "¡Correcto! El lavado de manos debe ser minucioso, con jabón y secado con papel desechable para evitar la contaminación cruzada."
+            feedback: "¡Correcto! De acuerdo con los lineamientos oficiales de la OMS, el proceso completo de lavado de manos debe durar entre 40 y 60 segundos para eliminar eficazmente los microorganismos y prevenir la contaminación cruzada en los alimentos."
         },
         {
             question: "¿Cuál es la regla estricta respecto al uso de joyería y accesorios durante la jornada laboral en la cocina?",
-            options: [
-                "Se permiten anillos si son de matrimonio.",
-                "Se pueden usar aretes pequeños que no cuelguen.",
-                "No se permite el uso de anillos, pulseras, relojes, aretes ni collares en el área de producción.",
-                "Solo se prohíben collares largos."
-            ],
+            options: ["Se permiten anillos si son de matrimonio.", "Se pueden usar aretes pequeños que no cuelguen.", "No se permite el uso de anillos, pulseras, relojes, aretes ni collares en el área de preparación.", "Sólo se prohíbe el uso de relojes inteligentes."],
             correct: 2,
-            feedback: "¡Correcto! La joyería representa un peligro físico y biológico para los alimentos."
+            feedback: "¡Correcto! La joyería representa un peligro físico (puede caer en la comida) y biológico (acumula bacterias difíciles de eliminar)."
         },
         {
             question: "Sobre el estado de las uñas del personal de cocina, ¿cuál es la especificación correcta?",
-            options: [
-                "Pueden ser largas si están limpias.",
-                "Deben estar cortas, limpias y estrictamente sin esmalte ni uñas postizas.",
-                "Se permite el uso de esmalte transparente o gelish.",
-                "No importa la longitud si se usan guantes."
-            ],
+            options: ["Pueden ser largas si están limpias.", "Deben estar cortas, limpias y estrictamente sin esmalte ni uñas postizas.", "Se permite el uso de esmalte transparente o gelish.", "Las uñas postizas se permiten si se usan guantes todo el tiempo."],
             correct: 1,
-            feedback: "¡Correcto! El esmalte se descascara y las uñas largas albergan restos y microorganismos."
+            feedback: "¡Correcto! El esmalte se descascara y las uñas largas albergan restos de comida y microorganismos debajo de ellas."
         },
         {
             question: "¿Cómo debe utilizarse correctamente el uniforme y el calzado en el área de producción?",
-            options: [
-                "Uniforme limpio, gorro que cubra totalmente el cabello, cubrebocas que tape nariz y boca, y calzado cerrado, limpio y antiderrapante.",
-                "Se puede usar ropa de civil si se trae mascarilla.",
-                "Solo se exige cofia, el resto es opcional.",
-                "El calzado abierto es permitido si tiene calcetines."
-            ],
+            options: ["Uniforme limpio, cofia que cubra totalmente el cabello, cubrebocas que tape nariz y boca, y calzado cerrado, limpio y antiderrapante.", "Se puede usar ropa de civil si se trae mandil encima.", "La cofia es opcional si el cabello está corto.", "Se permiten sandalias o tenis de tela para mayor comodidad."],
             correct: 0,
-            feedback: "¡Correcto! El uniforme completo actúa como barrera protectora."
+            feedback: "¡Correcto! El uniforme completo actúa como barrera protectora. La cofia evita caída de cabellos y el calzado cerrado previene quemaduras y resbalones."
         },
         {
             question: "Si un manejador de alimentos presenta síntomas de gripe, tos o heridas infectadas en las manos, ¿qué acción se debe tomar?",
-            options: [
-                "Seguir trabajando normalmente pero usando doble cubrebocas.",
-                "Reportar inmediatamente al jefe de sección para ser reubicado o incapacitado, evitando el contacto directo con los alimentos.",
-                "Usar guantes y continuar trabajando.",
-                "Solo informar al compañero más cercano."
-            ],
+            options: ["Seguir trabajando normalmente pero usando doble cubrebocas.", "Reportar inmediatamente al jefe de sección para ser reubicado o incapacitado, evitando el contacto directo con los alimentos.", "Colocarse una bandita (curita) en la herida y continuar preparando la dieta regular.", "Tomar un analgésico y no decir nada para no retrasar el servicio."],
             correct: 1,
-            feedback: "¡Correcto! El personal con heridas o infecciones es fuente alta de contaminación."
+            feedback: "¡Correcto! El personal con heridas expuestas o infecciones respiratorias es una fuente alta de bacterias (como Staphylococcus) que contaminan las dietas."
         },
         {
             question: "¿Cuál es la frecuencia correcta con la que se debe cambiar el cubrebocas durante el turno de trabajo?",
-            options: [
-                "Cada que se humedezca, esté sucio o al menos cada 4 horas de uso continuo.",
-                "Una vez por semana si es lavable.",
-                "Únicamente cuando se vaya a entrar a la línea de ensamble.",
-                "No es necesario cambiarlo durante el turno."
-            ],
+            options: ["Cada que se humedezca, esté sucio o al menos cada 4 horas de uso continuo.", "Una vez por semana si es lavable.", "Únicamente cuando se vaya a entrar a la línea de ensamble de charolas.", "Sólo cuando el trabajador sienta que ya no puede respirar bien."],
             correct: 0,
-            feedback: "¡Correcto! Un cubrebocas húmedo pierde su capacidad de filtración y puede albergar bacterias."
+            feedback: "¡Correcto! Un cubrebocas húmedo pierde su capacidad de filtración y se convierte en un medio de cultivo para las bacterias de la saliva."
         },
         {
             question: "¿Qué acciones o hábitos quedan estrictamente prohibidos dentro de las áreas de preparación de alimentos?",
-            options: [
-                "Hablar en voz alta y cantar.",
-                "Comer, mascar chicle, fumar, escupir o probar los alimentos con los dedos o utensilios sucios.",
-                "Usar cofia de color diferente a la del resto.",
-                "Usar guantes de un solo uso."
-            ],
+            options: ["Hablar en voz alta y cantar.", "Comer, mascar chicle, fumar, escupir o probar los alimentos con los dedos o utensilios sucios.", "Usar cofia de color diferente a la del resto del personal.", "Tomar agua de un termo cerrado en la zona de lavado."],
             correct: 1,
-            feedback: "¡Correcto! Estas acciones esparcen gotas de saliva o introducen contaminación directa a los alimentos."
+            feedback: "¡Correcto! Estas acciones esparcen gotas de saliva o introducen contaminación química y física directa a los alimentos de los pacientes."
         },
         {
             question: "Antes de ingresar al servicio y comenzar las labores en el departamento de Nutrición, ¿cuál es un requisito indispensable de higiene personal diaria?",
-            options: [
-                "Llegar con perfume o loción de olor fuerte para mitigar los olores de la cocina.",
-                "Haberse bañado diariamente, presentarse bien aseado y con el uniforme limpio desde casa o cambiado en vestuario.",
-                "Solo lavarse las manos al llegar.",
-                "Usar ropa informal para mayor comodidad."
-            ],
+            options: ["Llegar con perfume o loción de olor fuerte para mitigar los olores de la cocina.", "Haberse bañado diariamente, presentarse bien aseado y con el uniforme limpio desde casa o cambiarse en los vestidores.", "Tener el cabello suelto pero bien cepillado.", "Únicamente desinfectarse los zapatos en el tapete de la entrada."],
             correct: 1,
-            feedback: "¡Correcto! El baño diario y el uniforme limpio minimizan la carga de microorganismos."
+            feedback: "¡Correcto! El baño diario y el uniforme limpio minimizan la carga de microorganismos ambientales que el personal introduce a las zonas críticas del servicio."
         },
         {
             question: "¿Cuándo es obligatorio volver a realizar la técnica completa de lavado de manos?",
-            options: [
-                "Únicamente al inicio del turno de trabajo.",
-                "Solo después de limpiar las mesas de trabajo con cloro.",
-                "Cada vez que se cambie de actividad, después de ir al baño, tocar basura o superficies sucias, o al manipular alimentos crudos.",
-                "Solo al cambiar de zona de trabajo."
-            ],
+            options: ["Únicamente al inicio del turno de trabajo.", "Solo después de limpiar las mesas de trabajo con cloro.", "Cada vez que se cambie de actividad, después de ir al baño, tocar basura, dinero, el celular o tras estornudar/toser.", "Cada dos horas de manera fija, sin importar lo que se esté haciendo."],
             correct: 2,
-            feedback: "¡Correcto! Cualquier interrupción o contacto con superficies sucias exige un nuevo lavado."
+            feedback: "¡Correcto! Cualquier interrupción o contacto con superficies sucias (como el celular o desechos) rompe la inocuidad y exige un nuevo lavado."
         },
         {
             question: "Si se requiere el uso de guantes para el ensamble de dietas frías o ensaladas, ¿cómo deben emplearse?",
-            options: [
-                "Se deben lavar las manos antes de ponerlos, usarlos solo para esa tarea y desecharlos en cuanto se rompan, ensucien o cambie de actividad.",
-                "Pueden lavarse y reutilizarse al día siguiente.",
-                "Usar guantes durante todo el turno sin cambiarlos.",
-                "Compartir guantes entre compañeros si es necesario."
-            ],
+            options: ["Se deben lavar las manos antes de ponerlos, usarlos solo para esa tarea y desecharlos en cuanto se rompan, ensucien o cambie de actividad.", "Pueden lavarse y reutilizarse al día siguiente si no están rotos.", "Sustituyen por completo la necesidad de lavarse las manos con agua y jabón.", "Se deben desinfectar con cloro directamente mientras se traen puestos."],
             correct: 0,
-            feedback: "¡Correcto! Los guantes son una protección adicional, no un sustituto del lavado."
+            feedback: "¡Correcto! Los guantes son una protección adicional, no un sustituto del lavado. Su mal uso o reutilización acumula humedad y acelera el crecimiento bacteriano."
         }
     ];
 
@@ -528,7 +473,6 @@
 
         q.options.forEach((opt, idx) => {
             const btn = document.createElement("button");
-            btn.type = "button";
             btn.innerText = opt;
             btn.classList.add("option-btn");
             btn.addEventListener("click", () => selectOption(idx, btn));
@@ -553,7 +497,7 @@
             score++;
         } else {
             clickedButton.classList.add("incorrect");
-            if (allButtons[q.correct]) allButtons[q.correct].classList.add("correct");
+            allButtons[q.correct].classList.add("correct");
         }
 
         feedbackText.innerText = q.feedback;
@@ -584,18 +528,14 @@
             unidad:    "HGZ2A"
         };
 
-        // Intentamos enviar con CORS normal. Si el endpoint no permite CORS, la petición fallará en consola —
-        // eso es mejor para depuración que "no-cors" (que silencia la respuesta).
         fetch(WEB_SCRIPT_URL, {
             method: "POST",
+            mode: "no-cors",
             cache: "no-cache",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         })
-        .then(response => {
-            // Si el servidor responde OK, procedemos. Si es "opaque" o falla por CORS, irá al catch.
-            showResults();
-        })
+        .then(() => showResults())
         .catch(err => { console.error("Error al enviar:", err); showResults(); });
     }
 
